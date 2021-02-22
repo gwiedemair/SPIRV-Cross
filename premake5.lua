@@ -4,16 +4,28 @@ project "spirv-cross"
     cppdialect "C++latest"
 
     files {
-        "main.cpp",
-
+		"spirv.hpp",
+		"spirv_common.hpp",
+		"spirv_cfg.hpp",
+		"spirv_cpp.hpp",
+		"spriv_parser.hpp",
+		"spirv_cross.hpp",
+		"spirv_cross_containers.hpp",
+		"spirv_cross_parsed_ir.hpp",
+		"spirv_cross_error_handling.hpp",
+		"spirv_cross_util.hpp",
+		"spirv_cfg.cpp",
+		"spirv_cpp.cpp",
+		"spirv_parser.cpp",
+		"spirv_cross.cpp",
+		"spirv_cross_parsed_ir.cpp",
+		"spirv_cross_util.cpp",
     }
 
     includedirs {
-
     }
 
     defines {
-        "HAVE_SPIRV_CROSS_GIT",
     }
 
     filter "platforms:Static"
@@ -22,5 +34,5 @@ project "spirv-cross"
     filter "platforms:Shared"
     kind "SharedLib"
     postbuildcommands {
-        ("{COPY} \"%{wks.location}/bin/" .. outputdir .. "/Utils/*.dll\" %{cfg.targetdir}"),
+        --("{COPY} \"%{wks.location}/bin/" .. outputdir .. "/Utils/*.dll\" %{cfg.targetdir}"),
     }
